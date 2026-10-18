@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="uz" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DoriKo'mak | MedShare — Hayotiy Dorilar Ko'prigi</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome 6 Pro / Free -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+              950: '#022c22'
+            },
+            azure: {
+              500: '#0ea5e9',
+              600: '#0284c7',
+              900: '#0c4a6e'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar and Glass Effects */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(100, 116, 139, 0.3);
+      border-radius: 9999px;
+    }
+    .glass-nav {
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .hero-glow-light {
+      background: radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.15) 0%, rgba(14, 165, 233, 0.08) 50%, transparent 80%);
+    }
+    .hero-glow-dark {
+      background: radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.22) 0%, rgba(14, 165, 233, 0.12) 50%, transparent 80%);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans transition-colors duration-300 min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- Top Awareness Banner -->
+  <div class="bg-gradient-to-r from-brand-700 via-teal-800 to-azure-900 text-white text-xs sm:text-sm py-2 px-4 shadow-sm">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <div class="flex items-center gap-2 mx-auto sm:mx-0">
+        <span class="inline-flex h-2 w-2 rounded-full bg-emerald-400 animate-ping"></span>
+        <span data-i18n="topBannerNotice" class="font-medium tracking-wide">
+          Ijtimoiy tashabbus: Vafot etgan yaqinlardan ortgan yoki o‘zgargan qimmatbaho dorilarni muhtoj bemorlarga ulashamiz.
+        </span>
+      </div>
+      <div class="hidden sm:flex items-center gap-4 text-xs font-semibold text-emerald-200">
+        <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-heart"></i> 100% Yopiq O'ram</span>
+        <span class="flex items-center gap-1.5"><i class="fa-solid fa-snowflake"></i> Sovuq zanjiri nazorati</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Bar -->
+  <header class="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 border-b border-slate-200/80 dark:border-slate-800/80 glass-nav transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-600 via-emerald-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-brand-500/25 group-hover:scale-105 transition duration-300 text-white">
+          <i class="fa-solid fa-hands-holding-circle text-2xl"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="font-display font-extrabold text-2xl tracking-tight text-slate-900 dark:text-white">Dori<span class="text-brand-600 dark:text-brand-400">Ko'mak</span></span>
+            <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-brand-100 dark:bg-brand-950 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800 uppercase tracking-wider">Social</span>
+          </div>
+          <span class="block text-[11px] font-medium text-slate-500 dark:text-slate-400 -mt-0.5 tracking-wider" data-i18n="logoSub">
+            Onkologik & Og'ir Xastalik Dori Ko'prigi
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Navigation -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600 dark:text-slate-300">
+        <a href="#katalog" class="hover:text-brand-600 dark:hover:text-brand-400 transition" data-i18n="navCatalog">Dorilar Bazasi</a>
+        <a href="#qanday-ishlaydi" class="hover:text-brand-600 dark:hover:text-brand-400 transition" data-i18n="navHowItWorks">Qanday Ishlaydi?</a>
+        <a href="#xavfsizlik" class="hover:text-brand-600 dark:hover:text-brand-400 transition" data-i18n="navSafety">Xavfsizlik & Retsept</a>
+        <a href="#statistika" class="hover:text-brand-600 dark:hover:text-brand-400 transition" data-i18n="navImpact">Natijalar</a>
+      </nav>
+
+      <!-- Right Utility Actions (Language Switcher, Dark Mode, New Listing Button) -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        
+        <!-- Language Switcher Dropdown -->
+        <div class="relative">
+          <select id="langSelect" onchange="changeLanguage(this.value)" class="text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-xl px-2.5 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500 cursor-pointer">
+            <option value="uz">UZ (O'zbek)</option>
+            <option value="ru">RU (Русский)</option>
+            <option value="en">EN (English)</option>
+          </select>
+        </div>
+
+        <!-- Dark / Light Mode Toggle Button -->
+        <button id="themeToggleBtn" onclick="toggleTheme()" aria-label="Toggle theme" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-amber-400 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center transition">
+          <i id="themeIcon" class="fa-solid fa-moon text-base"></i>
+        </button>
+
+        <!-- CTA E'lon berish -->
+        <button onclick="openModal('addListingModal')" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-brand-600 to-emerald-500 hover:from-brand-700 hover:to-emerald-600 text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-xl shadow-lg shadow-brand-500/20 active:scale-95 transition">
+          <i class="fa-solid fa-plus-circle text-base"></i>
+          <span data-i18n="btnPostMedicine">Dori E'lon Qilish</span>
+        </button>
+
+        <!-- Mobile Drawer Toggle -->
+        <button onclick="toggleMobileNav()" class="lg:hidden p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileDrawer" class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-3 pb-6 space-y-3">
+      <a href="#katalog" onclick="toggleMobileNav()" class="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 font-medium hover:bg-brand-50 dark:hover:bg-slate-800" data-i18n="navCatalog">Dorilar Bazasi</a>
+      <a href="#qanday-ishlaydi" onclick="toggleMobileNav()" class="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 font-medium hover:bg-brand-50 dark:hover:bg-slate-800" data-i18n="navHowItWorks">Qanday Ishlaydi?</a>
+      <a href="#xavfsizlik" onclick="toggleMobileNav()" class="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 font-medium hover:bg-brand-50 dark:hover:bg-slate-800" data-i18n="navSafety">Xavfsizlik & Retsept</a>
+      <a href="#statistika" onclick="toggleMobileNav()" class="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 font-medium hover:bg-brand-50 dark:hover:bg-slate-800" data-i18n="navImpact">Natijalar</a>
+      <button onclick="toggleMobileNav(); openModal('addListingModal')" class="w-full mt-2 flex items-center justify-center gap-2 bg-brand-600 text-white font-bold py-3 rounded-xl shadow">
+        <i class="fa-solid fa-plus-circle"></i>
+        <span data-i18n="btnPostMedicine">Dori E'lon Qilish</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden py-14 lg:py-24 border-b border-slate-200/60 dark:border-slate-800/60">
+    <div class="absolute inset-0 pointer-events-none hero-glow-light dark:hero-glow-dark"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Hero Content -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-brand-100/80 dark:bg-brand-950/80 border border-brand-200 dark:border-brand-800 text-brand-800 dark:text-brand-300 text-xs sm:text-sm font-bold tracking-wide">
+            <i class="fa-solid fa-ribbon text-rose-500"></i>
+            <span data-i18n="heroBadge">Onkologiya va Og'ir Bemorlar Uchun Yechim</span>
+          </div>
+
+          <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+            <span data-i18n="heroTitlePart1">Mablag‘ingiz yetmayaptimi?</span> <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-emerald-500 to-cyan-500" data-i18n="heroTitlePart2">
+              DoriKo‘mak — qimmat dorilarga umid ko‘prigi.
+            </span>
+          </h1>
+
+          <p class="text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal" data-i18n="heroDescription">
+            Onkologiya preparatlari narxi millionlab so‘m turadi. Yaqinlari vafot etgan oilalarda qolgan qimmatbaho asl dorilarni bu yerda <strong>bepul ehson</strong> qilishingiz, <strong>teng yarmiga (-50%)</strong> yoki <strong>ancha arzonroq</strong> sotib/topib olishingiz mumkin.
+          </p>
+
+          <!-- Dual Mode Interactive Actions -->
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a href="#katalog" onclick="setRole('buyer')" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-brand-600 hover:bg-brand-700 text-white font-bold px-7 py-4 rounded-2xl shadow-xl shadow-brand-600/30 active:scale-95 transition">
+              <i class="fa-solid fa-magnifying-glass-chart text-lg"></i>
+              <span data-i18n="heroBtnBuyer">Dori Qidiryapman (Bemor)</span>
+            </a>
+            <button onclick="setRole('seller'); openModal('addListingModal')" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white dark:bg-slate-900 border-2 border-brand-500/40 hover:border-brand-500 text-slate-900 dark:text-white font-bold px-7 py-4 rounded-2xl shadow-sm hover:bg-brand-50/50 dark:hover:bg-slate-800 transition">
+              <i class="fa-solid fa-hand-holding-heart text-brand-600 dark:text-brand-400 text-lg"></i>
+              <span data-i18n="heroBtnSeller">Dorini Topsirish (Ehson / Sotuvchi)</span>
+            </button>
+          </div>
+
+          <!-- Highlight Guarantees -->
+          <div class="pt-6 grid grid-cols-3 gap-3 sm:gap-6 border-t border-slate-200/80 dark:border-slate-800/80">
+            <div class="text-left">
+              <span class="block font-display font-black text-xl sm:text-2xl text-slate-900 dark:text-white">0 so'm</span>
+              <span class="text-xs text-slate-500 dark:text-slate-400 font-medium" data-i18n="stat1Label">Xayriya dorilari ulushi</span>
+            </div>
+            <div class="text-left">
+              <span class="block font-display font-black text-xl sm:text-2xl text-brand-600 dark:text-brand-400">-50% gacha</span>
+              <span class="text-xs text-slate-500 dark:text-slate-400 font-medium" data-i18n="stat2Label">Dorixona narxidan tejash</span>
+            </div>
+            <div class="text-left">
+              <span class="block font-display font-black text-xl sm:text-2xl text-cyan-600 dark:text-cyan-400">100%</span>
+              <span class="text-xs text-slate-500 dark:text-slate-400 font-medium" data-i18n="stat3Label">Ochilmagan o'ram kafolati</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Live Showcase Card -->
+        <div class="lg:col-span-5">
+          <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-7 shadow-2xl border border-slate-200/90 dark:border-slate-800 relative">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-2xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl font-bold">
+                  <i class="fa-solid fa-pills"></i>
+                </div>
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400" data-i18n="heroLiveSampleBadge">Shoshilinch E'lon Namunasi</span>
+                  <h4 class="font-bold text-slate-900 dark:text-white text-base">Keytruda (Pembrolizumab)</h4>
+                </div>
+              </div>
+              <span class="px-2.5 py-1 rounded-full text-xs font-extrabold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
+                100% Ehson
+              </span>
+            </div>
+
+            <div class="py-5 space-y-3.5 text-xs sm:text-sm">
+              <div class="flex justify-between items-center text-slate-500 dark:text-slate-400">
+                <span data-i18n="originalPriceLabel">Dorixona narxi:</span>
+                <span class="line-through font-semibold text-rose-500">18,500,000 UZS</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="font-bold text-slate-700 dark:text-slate-200" data-i18n="ourPriceLabel">Saytdagi narxi:</span>
+                <span class="text-2xl font-black text-emerald-600 dark:text-emerald-400">0 UZS (Bepul)</span>
+              </div>
+              <div class="flex justify-between items-center text-slate-600 dark:text-slate-300">
+                <span data-i18n="expirationLabel">Yaroqlilik muddati:</span>
+                <span class="font-bold text-slate-900 dark:text-white">08/2027</span>
+              </div>
+              <div class="flex justify-between items-center text-slate-600 dark:text-slate-300">
+                <span data-i18n="locationLabel">Hudud:</span>
+                <span class="font-semibold text-brand-600 dark:text-brand-400 flex items-center gap-1">
+                  <i class="fa-solid fa-location-dot"></i> Toshkent sh.
+                </span>
+              </div>
+            </div>
+
+            <div class="bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 p-3.5 rounded-2xl text-xs text-amber-800 dark:text-amber-300 flex items-start gap-2.5">
+              <i class="fa-solid fa-snowflake text-amber-600 dark:text-amber-400 mt-0.5"></i>
+              <span data-i18n="heroColdNotice">Maxsus sovutgichda (+2°C dan +8°C) saqlanmoqda. Bemor yaqinidan xayriya.</span>
+            </div>
+
+            <button onclick="scrollToFilter('free')" class="w-full mt-5 py-3.5 bg-slate-900 dark:bg-brand-600 hover:bg-slate-800 dark:hover:bg-brand-700 text-white font-bold text-xs sm:text-sm rounded-xl transition shadow">
+              <span data-i18n="heroShowSimilarBtn">Shu kabi bepul dorilarni ko'rish</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- User Flow Selector Section: Sotuvchi vs Xaridor -->
+  <section class="py-12 bg-white dark:bg-slate-900 border-b border-slate-200/60 dark:border-slate-800/60 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white" data-i18n="flowTitle">
+          Saytda Sizning Vazifangiz Nima?
+        </h2>
+        <p class="text-slate-500 dark:text-slate-400 text-sm mt-1" data-i18n="flowSubtitle">
+          Platforma ikki tomonning og'irini yengil qilish uchun yaratilgan:
+        </p>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="flex justify-center mb-8">
+        <div class="inline-flex p-1.5 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 max-w-md w-full">
+          <button id="roleBtnBuyer" onclick="setRole('buyer')" class="flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-bold transition flex items-center justify-center gap-2 bg-white dark:bg-slate-900 text-brand-600 dark:text-brand-400 shadow-sm">
+            <i class="fa-solid fa-user-injured"></i>
+            <span data-i18n="roleTabBuyer">1. Men Xaridorman (Bemor)</span>
+          </button>
+          <button id="roleBtnSeller" onclick="setRole('seller')" class="flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-bold transition flex items-center justify-center gap-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+            <span data-i18n="roleTabSeller">2. Men Sotuvchiman (Ehsonchi)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Dynamic Role Cards -->
+      <div id="roleDetailsBuyer" class="grid sm:grid-cols-3 gap-6">
+        <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl font-bold">
+            <i class="fa-solid fa-tags"></i>
+          </div>
+          <h3 class="font-bold text-base text-slate-900 dark:text-white" data-i18n="buyerStep1Title">Arzon yoki Bepul Topish</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed" data-i18n="buyerStep1Desc">
+            Qimmatbaho dori vositalarini bozor narxining 50% gacha arzoniga yoki butunlay xayriya sifatida oling.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl font-bold">
+            <i class="fa-solid fa-box-check"></i>
+          </div>
+          <h3 class="font-bold text-base text-slate-900 dark:text-white" data-i18n="buyerStep2Title">Yopiq Qadoq va Yaroqlilik</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed" data-i18n="buyerStep2Desc">
+            Barcha e'lonlar muddati va germetik holati bo'yicha ko'rsatiladi. Saqlanish sharoitini bevosita tekshiring.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl font-bold">
+            <i class="fa-solid fa-phone-volume"></i>
+          </div>
+          <h3 class="font-bold text-base text-slate-900 dark:text-white" data-i18n="buyerStep3Title">To'g'ridan-to'g'ri Aloqa</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed" data-i18n="buyerStep3Desc">
+            Vosita egalari bilan vositachilarsiz qo'ng'iroq yoki Telegram orqali bog'lanib, shifokor retsepti bilan oling.
+          </p>
+        </div>
+      </div>
+
+      <div id="roleDetailsSeller" class="hidden grid sm:grid-cols-3 gap-6">
+        <div class="p-6 rounded-3xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/60 space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl font-bold">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+          </div>
+          <h3 class="font-bold text-base text-slate-900 dark:text-white" data-i18n="sellerStep1Title">Xarajatni Qoplash (-50%)</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed" data-i18n="sellerStep1Desc">
+            Yaqiningizga sarflangan qimmat dori mablag'ining 50% gacha qismini qaytarib olib, oilangizga ko'mak qiling.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/60 space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl font-bold">
+            <i class="fa-solid fa-heart-circle-check"></i>
+          </div>
+          <h3 class="font-bold text-base text-slate-900 dark:text-white" data-i18n="sellerStep2Title">To'liq Xayriya Qilish</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed" data-i18n="sellerStep2Desc">
+            Mablag' qaytarish shart bo'lmasa, dorini tekinga ehson qilib, boshqa bir inson hayotini saqlab qoling.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/60 space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl font-bold">
+            <i class="fa-solid fa-hourglass-end"></i>
+          </div>
+          <h3 class="font-bold text-base text-slate-900 dark:text-white" data-i18n="sellerStep3Title">Isrofning Oldini Olish</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed" data-i18n="sellerStep3Desc">
+            Yaroqlilik muddati tugab chiqindi bo'lishidan avval dorini o'z vaqtida muhtojlarga yetib borishiga xizmat qiling.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Live Medication Feed / Catalog Section -->
+  <section id="katalog" class="py-16 flex-grow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 dark:text-brand-400" data-i18n="catalogLiveBadge">Jonli Baza</span>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-1" data-i18n="catalogTitle">
+            Mavjud Dori Vositalari
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1" data-i18n="catalogSubtitle">
+            Kerakli preparatni tezkor qidiring yoki shartlar bo'yicha saralang
+          </p>
+        </div>
+
+        <!-- Add Button for Mobile/Tablet -->
+        <button onclick="openModal('addListingModal')" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-2xl shadow transition self-start md:self-auto">
+          <i class="fa-solid fa-plus-circle text-base"></i>
+          <span data-i18n="btnPostMedicine">Dori E'lon Qilish</span>
+        </button>
+      </div>
+
+      <!-- Filters & Search Toolbar -->
+      <div class="bg-white dark:bg-slate-900 p-5 rounded-3xl border border-slate-200/90 dark:border-slate-800 shadow-sm space-y-4 mb-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          
+          <!-- Search input -->
+          <div class="relative">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+            <input type="text" id="searchInput" oninput="filterMedications()" placeholder="Dori nomi yoki faol moddasi..." 
+              class="w-full pl-11 pr-4 py-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-500 transition">
+          </div>
+
+          <!-- Category filter -->
+          <div>
+            <select id="categoryFilter" onchange="filterMedications()" class="w-full px-4 py-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-500 transition">
+              <option value="all" data-i18n="optAllCategories">Barcha kasallik turlari</option>
+              <option value="onkologiya" data-i18n="optOncology">Onkologiya (Kimyoterapiya/Target)</option>
+              <option value="gematologiya" data-i18n="optHematology">Gematologiya (Qon xastaliklari)</option>
+              <option value="immunoterapiya" data-i18n="optImmunology">Immunologiya & Autoimmun</option>
+              <option value="organ" data-i18n="optTransplant">Transplantatsiya & Boshqa</option>
+            </select>
+          </div>
+
+          <!-- Price Type filter -->
+          <div>
+            <select id="priceFilter" onchange="filterMedications()" class="w-full px-4 py-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-500 transition">
+              <option value="all" data-i18n="optAllPrices">Barcha narx shartlari</option>
+              <option value="free" data-i18n="optPriceFree">100% Bepul (Xayriya / Ehson)</option>
+              <option value="half" data-i18n="optPriceHalf">Teng yarmiga (-50%)</option>
+              <option value="discount" data-i18n="optPriceDiscount">Katta chegirma</option>
+            </select>
+          </div>
+
+          <!-- Region filter -->
+          <div>
+            <select id="regionFilter" onchange="filterMedications()" class="w-full px-4 py-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-500 transition">
+              <option value="all" data-i18n="optAllRegions">Barcha hududlar</option>
+              <option value="Toshkent">Toshkent shahar</option>
+              <option value="Samarqand">Samarqand</option>
+              <option value="Farg'ona">Farg'ona / Vodiy</option>
+              <option value="Buxoro">Buxoro</option>
+              <option value="Andijon">Andijon</option>
+              <option value="Namangan">Namangan</option>
+              <option value="Xorazm">Xorazm</option>
+            </select>
+          </div>
+
+        </div>
+
+        <!-- Quick filter chips -->
+        <div class="flex items-center gap-2 flex-wrap pt-2 border-t border-slate-100 dark:border-slate-800 text-xs">
+          <span class="text-slate-400 font-semibold mr-1" data-i18n="quickFilterLabel">Tezkor:</span>
+          <button onclick="setQuickPriceFilter('all')" class="chip-btn px-3 py-1.5 rounded-full font-bold bg-brand-600 text-white" data-i18n="chipAll">Hammasi</button>
+          <button onclick="setQuickPriceFilter('free')" class="chip-btn px-3 py-1.5 rounded-full font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200" data-i18n="chipFree">Faqat Bepul</button>
+          <button onclick="setQuickPriceFilter('half')" class="chip-btn px-3 py-1.5 rounded-full font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200" data-i18n="chipHalf">-50% Arzon</button>
+          <button onclick="setQuickCategoryFilter('onkologiya')" class="chip-btn px-3 py-1.5 rounded-full font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200" data-i18n="chipOnco">Onkologiya</button>
+        </div>
+      </div>
+
+      <!-- Listings Grid Display -->
+      <div id="medicationsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Injected via JavaScript dynamically -->
+      </div>
+
+      <!-- Empty Results State -->
+      <div id="emptyCatalogState" class="hidden text-center py-20 bg-white dark:bg-slate-900 rounded-3xl border border-dashed border-slate-300 dark:border-slate-800 p-8">
+        <div class="w-16 h-16 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-400 mx-auto flex items-center justify-center text-2xl mb-4">
+          <i class="fa-solid fa-box-open"></i>
+        </div>
+        <h4 class="font-bold text-slate-800 dark:text-white text-lg" data-i18n="emptyTitle">Bunday dori vositasi topilmadi</h4>
+        <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm max-w-sm mx-auto mt-1" data-i18n="emptyDesc">
+          Qidiruv mezonlarini o'zgartiring yoki yangi e'lon qoldirilishini kuting.
+        </p>
+        <button onclick="resetAllFilters()" class="mt-4 px-5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-bold text-slate-800 dark:text-white transition" data-i18n="btnResetFilters">
+          Filtrlarni tozalash
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Process Timeline Section -->
+  <section id="qanday-ishlaydi" class="py-20 bg-white dark:bg-slate-900 border-y border-slate-200/60 dark:border-slate-800/60 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 dark:text-brand-400" data-i18n="howItWorksBadge">Shoshilinch Yo'riqnoma</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-1" data-i18n="howItWorksTitle">
+          Tizim Qanday Ishlaydi?
+        </h2>
+        <p class="text-slate-500 dark:text-slate-400 text-sm mt-2" data-i18n="howItWorksSub">
+          Hech qanday murakkabliklarsiz, xavfsiz va to'g'ridan-to'g'ri ko'mak:
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-6">
+        
+        <div class="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 relative group hover:border-brand-500 transition">
+          <span class="font-display font-black text-3xl text-brand-600 dark:text-brand-400 mb-4 block">01</span>
+          <h3 class="font-bold text-base text-slate-900 dark:text-white mb-2" data-i18n="step1Title">E'lon Joylash</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed" data-i18n="step1Desc">
+            Ortib qolgan dori nomi, fotosurati, yaroqlilik muddati va taklif narxi (yoki 0 so'm ehson) kiritiladi.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 relative group hover:border-brand-500 transition">
+          <span class="font-display font-black text-3xl text-brand-600 dark:text-brand-400 mb-4 block">02</span>
+          <h3 class="font-bold text-base text-slate-900 dark:text-white mb-2" data-i18n="step2Title">Qadoq Tekshiruvi</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed" data-i18n="step2Desc">
+            Dorining zavod qadog'i butunligi, ochilmaganligi va maxsus haroratda saqlangani tasdiqlanadi.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 relative group hover:border-brand-500 transition">
+          <span class="font-display font-black text-3xl text-brand-600 dark:text-brand-400 mb-4 block">03</span>
+          <h3 class="font-bold text-base text-slate-900 dark:text-white mb-2" data-i18n="step3Title">Retsept Taqdimoti</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed" data-i18n="step3Desc">
+            Xaridor shifokor tomonidan berilgan rasmiy retsept va tayinlov varaqasini ko'rsatishi shart.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 relative group hover:border-brand-500 transition">
+          <span class="font-display font-black text-3xl text-brand-600 dark:text-brand-400 mb-4 block">04</span>
+          <h3 class="font-bold text-base text-slate-900 dark:text-white mb-2" data-i18n="step4Title">Topshirish & Najot</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed" data-i18n="step4Desc">
+            Dori topshiriladi, bemor davolanishdan uzilib qolmaydi va qimmat dori isrof bo'lishdan qutiladi.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Strict Safety & Medical Disclaimer Section -->
+  <section id="xavfsizlik" class="py-16 bg-slate-100 dark:bg-slate-950/70 border-b border-slate-200/60 dark:border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-8 sm:p-10 border border-amber-200 dark:border-amber-900/60 shadow-sm">
+        
+        <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+          <div class="w-16 h-16 rounded-2xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center text-3xl flex-shrink-0">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+          </div>
+          <div>
+            <span class="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-widest" data-i18n="safetyBadge">Qat'iy Nazorat va Ogohlantirish</span>
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-0.5" data-i18n="safetyTitle">
+              Tibbiy Xavfsizlik Qoidalari va Mas'uliyat
+            </h3>
+            <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1 leading-relaxed" data-i18n="safetySub">
+              DoriKo'mak tijoriy dorixona emas, ijtimoiy ko'mak maydonidir. Har bir dori almashinuvida quyidagilarga amal qilinishi shart:
+            </p>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-6 mt-8 pt-8 border-t border-slate-100 dark:border-slate-800 text-xs sm:text-sm">
+          <div class="space-y-1.5">
+            <h4 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <i class="fa-solid fa-ban text-rose-500"></i>
+              <span data-i18n="rule1Title">Ochilgan ampula/flakon yo'q</span>
+            </h4>
+            <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-xs" data-i18n="rule1Desc">
+              Faqat zavod himoya lentasi butun bo'lgan, ochilmagan qutilar qabul qilinadi.
+            </p>
+          </div>
+
+          <div class="space-y-1.5">
+            <h4 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <i class="fa-solid fa-snowflake text-sky-500"></i>
+              <span data-i18n="rule2Title">Sovuq zanjiriga rioya</span>
+            </h4>
+            <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-xs" data-i18n="rule2Desc">
+              +2°C dan +8°C gacha bo'lgan onkologik vositalarni topshirishda termoboks yoki xladogen ishlatilishi zarur.
+            </p>
+          </div>
+
+          <div class="space-y-1.5">
+            <h4 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <i class="fa-solid fa-file-prescription text-emerald-500"></i>
+              <span data-i18n="rule3Title">Retsept bilan qabul qilish</span>
+            </h4>
+            <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-xs" data-i18n="rule3Desc">
+              O'zboshimchalik bilan davolanish qat'iyan taqiqlanadi. Faqat onkolog-shifokor tayinlovi asosida olinadi.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Statistics & Mission Section -->
+  <section id="statistika" class="py-20 bg-gradient-to-br from-brand-900 via-slate-950 to-azure-950 text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-400" data-i18n="impactBadge">Ijtimoiy Birdamlik</span>
+        <h2 class="font-display text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight" data-i18n="impactTitle">
+          "Shuning uchun bu loyiha yechim bo'ladi"
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed" data-i18n="impactDescription">
+          Har yili qimmatbaho dori vositalari muddati o'tib tashlab yuboriladi. Ayni vaqtda boshqa bir oila mablag'i yetmay davolanishni to'xtatishga majbur bo'ladi. Biz bu ikki tomonni birlashtirib, hayotlarni saqlaymiz.
+        </p>
+      </div>
+
+      <!-- Live Statistics Counter -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10">
+          <p class="font-display font-black text-3xl sm:text-4xl text-emerald-400" id="statMedicines">248+</p>
+          <p class="text-xs text-slate-300 mt-2 font-semibold" data-i18n="statCountMeds">Yetkazilgan dorilar</p>
+        </div>
+        <div class="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10">
+          <p class="font-display font-black text-3xl sm:text-4xl text-cyan-400" id="statSaved">1.4 mlrd</p>
+          <p class="text-xs text-slate-300 mt-2 font-semibold" data-i18n="statCountSavings">Tejalgan oilaviy mablag' (UZS)</p>
+        </div>
+        <div class="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10">
+          <p class="font-display font-black text-3xl sm:text-4xl text-amber-400" id="statDonors">120+</p>
+          <p class="text-xs text-slate-300 mt-2 font-semibold" data-i18n="statCountDonors">Ehsonchi oilalar</p>
+        </div>
+        <div class="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10">
+          <p class="font-display font-black text-3xl sm:text-4xl text-rose-400" id="statLives">100%</p>
+          <p class="text-xs text-slate-300 mt-2 font-semibold" data-i18n="statCountVolunteer">Bepul & Beg'araz tashabbus</p>
+        </div>
+      </div>
+
+      <!-- Call to Action -->
+      <div class="mt-12 text-center">
+        <button onclick="openModal('addListingModal')" class="inline-flex items-center gap-3 bg-brand-500 hover:bg-brand-400 text-slate-950 font-extrabold px-8 py-4 rounded-2xl shadow-xl shadow-brand-500/25 transition">
+          <i class="fa-solid fa-heart-pulse text-lg"></i>
+          <span data-i18n="btnCtaJoin">Siz ham dorini topshiring yoki ehson qiling</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-xs sm:text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+      
+      <div class="space-y-3">
+        <div class="flex items-center gap-2 text-white">
+          <div class="w-8 h-8 rounded-xl bg-brand-600 flex items-center justify-center text-white font-bold">
+            <i class="fa-solid fa-hands-holding-circle text-sm"></i>
+          </div>
+          <span class="font-display font-bold text-lg">DoriKo'mak</span>
+        </div>
+        <p class="text-xs text-slate-500 leading-relaxed" data-i18n="footerAbout">
+          Onkologik va og'ir kasalliklarga chalingan bemorlar uchun dorilarni qayta taqsimlash bo'yicha mustaqil ijtimoiy ko'ngillilar platformasi.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-xs" data-i18n="footerNavTitle">Tezkor Sahifalar</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="#katalog" class="hover:text-brand-400 transition" data-i18n="navCatalog">Dorilar Ro'yxati</a></li>
+          <li><a href="#qanday-ishlaydi" class="hover:text-brand-400 transition" data-i18n="navHowItWorks">Qanday Ishlaydi?</a></li>
+          <li><a href="#xavfsizlik" class="hover:text-brand-400 transition" data-i18n="navSafety">Xavfsizlik Talablari</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-xs" data-i18n="footerDisclaimerTitle">Yuridik Eslatma</h4>
+        <p class="text-xs text-slate-500 leading-relaxed" data-i18n="footerDisclaimer">
+          Ushbu sayt dori vositalarini sotuvchi dorixona emas. Sayt faqat fuqarolar o'rtasidagi ma'lumot almashinuvini ta'minlaydi. Retseptli vositalar faqat shifokor ko'rsatmasi bilan qabul qilinadi.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-xs" data-i18n="footerContactTitle">Ko'ngillilar Bog'lanishi</h4>
+        <div class="space-y-2 text-xs">
+          <p><i class="fa-solid fa-envelope text-brand-500 mr-2"></i> info@dorikomak.uz</p>
+          <p><i class="fa-brands fa-telegram text-brand-500 mr-2"></i> @dorikomak_admin</p>
+          <p><i class="fa-solid fa-phone text-brand-500 mr-2"></i> +998 (71) 200-44-22</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 mt-8 pt-6 border-t border-slate-900 text-center text-xs text-slate-600">
+      &copy; 2026 DoriKo'mak (MedShare). O'zbekiston bo'ylab insonparvarlik loyihasi. Barcha huquqlar himoyalangan.
+    </div>
+  </footer>
+
+  <!-- Modal: Yangi Dori E'loni Qo'shish (Sotuvchi / Ehsonchi uchun) -->
+  <div id="addListingModal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden my-6 border border-slate-200 dark:border-slate-800 transition-all">
+      
+      <!-- Modal Header -->
+      <div class="bg-gradient-to-r from-brand-700 via-teal-800 to-azure-900 text-white p-6 flex justify-between items-center">
+        <div>
+          <span class="text-xs uppercase tracking-widest text-emerald-300 font-bold" data-i18n="modalAddBadge">Yangi Dori Topshirish</span>
+          <h3 class="font-display font-bold text-xl sm:text-2xl mt-0.5" data-i18n="modalAddTitle">Dori E'lonini Joylashtirish</h3>
+        </div>
+        <button onclick="closeModal('addListingModal')" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Listing Form -->
+      <form id="newListingForm" onsubmit="handleFormSubmit(event)" class="p-6 space-y-4 max-h-[75vh] overflow-y-auto">
+        
+        <!-- Name & Dosage -->
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1" data-i18n="lblDrugName">Dori Nomi *</label>
+            <input type="text" id="fDrugName" required placeholder="Masalan: Herceptin (Trastuzumab)" 
+              class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1" data-i18n="lblDosage">Dozasi va Shakli *</label>
+            <input type="text" id="fDosage" required placeholder="Masalan: 440 mg flakon kukun" 
+              class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+          </div>
+        </div>
+
+        <!-- Category & Region -->
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1" data-i18n="lblCategory">Kasallik Yo'nalishi *</label>
+            <select id="fCategory" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+              <option value="onkologiya" data-i18n="optOncology">Onkologiya (Kimyoterapiya/Target)</option>
+              <option value="gematologiya" data-i18n="optHematology">Gematologiya (Qon xastaliklari)</option>
+              <option value="immunoterapiya" data-i18n="optImmunology">Immunologiya & Autoimmun</option>
+              <option value="organ" data-i18n="optTransplant">Transplantatsiya & Boshqa</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1" data-i18n="lblRegion">Hudud / Shahar *</label>
+            <select id="fRegion" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+              <option value="Toshkent">Toshkent shahar / viloyat</option>
+              <option value="Samarqand">Samarqand</option>
+              <option value="Farg'ona">Farg'ona vodiysi</option>
+              <option value="Buxoro">Buxoro</option>
+              <option value="Andijon">Andijon</option>
+              <option value="Namangan">Namangan</option>
+              <option value="Xorazm">Xorazm</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Price Conditions Selection -->
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1" data-i18n="lblPriceCondition">Topshirish Sharti *</label>
+          <div class="grid grid-cols-3 gap-3">
+            <label class="border border-slate-300 dark:border-slate-700 rounded-2xl p-3 flex flex-col items-center text-center cursor-pointer hover:border-brand-500 has-[:checked]:border-brand-600 has-[:checked]:bg-brand-50 dark:has-[:checked]:bg-brand-950/40">
+              <input type="radio" name="fPriceType" value="free" checked onchange="toggleFormPriceInputs()" class="text-brand-600 focus:ring-brand-500">
+              <span class="text-xs font-bold mt-1.5" data-i18n="typeFree">100% Ehson (Bepul)</span>
+            </label>
+            <label class="border border-slate-300 dark:border-slate-700 rounded-2xl p-3 flex flex-col items-center text-center cursor-pointer hover:border-brand-500 has-[:checked]:border-brand-600 has-[:checked]:bg-brand-50 dark:has-[:checked]:bg-brand-950/40">
+              <input type="radio" name="fPriceType" value="half" onchange="toggleFormPriceInputs()" class="text-brand-600 focus:ring-brand-500">
+              <span class="text-xs font-bold mt-1.5" data-i18n="typeHalf">Teng yarmiga (-50%)</span>
+            </label>
+            <label class="border border-slate-300 dark:border-slate-700 rounded-2xl p-3 flex flex-col items-center text-center cursor-pointer hover:border-brand-500 has-[:checked]:border-brand-600 has-[:checked]:bg-brand-50 dark:has-[:checked]:bg-brand-950/40">
+              <input type="radio" name="fPriceType" value="discount" onchange="toggleFormPriceInputs()" class="text-brand-600 focus:ring-brand-500">
+              <span class="text-xs font-bold mt-1.5" data-i18n="typeDiscount">Salgina arzonroq</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Prices Inputs -->
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1" data-i18n="lblOriginalPrice">Dorixona Asl Narxi (UZS) *</label>
+            <input type="number" id="fOriginalPrice" required placeholder="Masalan: 8000000" oninput="calculateDiscountAuto()"
+              class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+          </div>
+          <div id="sellingPriceWrapper" class="opacity-40 pointer-events-none">
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1" data-i18n="lblSellingPrice">Taklif Qilayotgan Narxingiz (UZS)</label>
+            <input type="number" id="fSellingPrice" placeholder="0 (agar bepul bo'lsa)" 
+              class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+          </div>
+        </div>
+
+        <!-- Expiry & Storage -->
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1" data-i18n="lblExpiry">Yaroqlilik Muddati (Oy/Yil) *</label>
+            <input type="text" id="fExpiry" required placeholder="Masalan: 12/2026" 
+              class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1" data-i18n="lblStorage">Saqlanish Sharoiti *</label>
+            <select id="fStorage" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+              <option value="cold" data-i18n="optStorageCold">Sovutgichda (+2°C dan +8°C gacha)</option>
+              <option value="room" data-i18n="optStorageRoom">Xona haroratida (25°C dan past)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Contacts -->
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1" data-i18n="lblPhone">Telefon Raqamingiz *</label>
+            <input type="tel" id="fPhone" required placeholder="+998 90 123 45 67" 
+              class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1" data-i18n="lblTelegram">Telegram (ixtiyoriy)</label>
+            <input type="text" id="fTelegram" placeholder="@foydalanuvchi" 
+              class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+          </div>
+        </div>
+
+        <!-- Description Note -->
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1" data-i18n="lblDesc">Izoh / Holat haqida ma'lumot</label>
+          <textarea id="fDesc" rows="2" placeholder="Masalan: Bemor yaqinimizdan 1 flakon ochilmagan qoldi, dorixona cheki saqlangan..." 
+            class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"></textarea>
+        </div>
+
+        <!-- Safety check tick -->
+        <div class="pt-2">
+          <label class="flex items-start gap-3 cursor-pointer text-xs text-slate-600 dark:text-slate-300">
+            <input type="checkbox" required class="mt-0.5 rounded text-brand-600 focus:ring-brand-500">
+            <span data-i18n="lblConsent">Dorining zavod qadog‘i ochilmaganligini, muddati o‘tmaganligini va shifokor retseptiga ega bo‘lgan bemorga topshirilishiga roziligimni tasdiqlayman.</span>
+          </label>
+        </div>
+
+        <!-- Form Actions -->
+        <div class="pt-4 flex items-center justify-end gap-3 border-t border-slate-200 dark:border-slate-800">
+          <button type="button" onclick="closeModal('addListingModal')" class="px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 text-xs font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition" data-i18n="btnCancel">
+            Bekor qilish
+          </button>
+          <button type="submit" class="px-6 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold shadow-lg shadow-brand-500/25 transition" data-i18n="btnSubmit">
+            E'lonni Joylashtirish
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Dori Tafsilotlari & Bog'lanish (Xaridor / Bemor uchun) -->
+  <div id="contactModal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-800 transition-all">
+      
+      <div class="bg-gradient-to-r from-brand-700 via-teal-800 to-azure-900 text-white p-6 flex justify-between items-center">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-widest text-emerald-300" data-i18n="modalContactBadge">Dori Egasi Bilan Bog'lanish</span>
+          <h3 id="cDrugTitle" class="font-display font-bold text-xl sm:text-2xl mt-0.5">Dori Nomi</h3>
+        </div>
+        <button onclick="closeModal('contactModal')" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-5">
+        
+        <!-- Price Showcase Bar -->
+        <div class="p-4 rounded-2xl bg-brand-50 dark:bg-brand-950/50 border border-brand-200 dark:border-brand-900 flex items-center justify-between">
+          <div>
+            <span class="text-[11px] text-slate-500 dark:text-slate-400 block" data-i18n="modalPriceCaption">Taklif etilayotgan narx:</span>
+            <span id="cPriceVal" class="text-2xl font-black text-brand-700 dark:text-brand-400">0 UZS</span>
+          </div>
+          <span id="cBadgeVal" class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
+            100% Ehson
+          </span>
+        </div>
+
+        <!-- Medicine specs -->
+        <div class="space-y-2.5 text-xs sm:text-sm">
+          <div class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-2">
+            <span class="text-slate-500 dark:text-slate-400" data-i18n="lblDosage">Dozasi:</span>
+            <span id="cDosageVal" class="font-bold text-slate-900 dark:text-white">440 mg flakon</span>
+          </div>
+          <div class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-2">
+            <span class="text-slate-500 dark:text-slate-400" data-i18n="expirationLabel">Yaroqlilik muddati:</span>
+            <span id="cExpiryVal" class="font-bold text-slate-900 dark:text-white">08/2027</span>
+          </div>
+          <div class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-2">
+            <span class="text-slate-500 dark:text-slate-400" data-i18n="locationLabel">Hudud:</span>
+            <span id="cRegionVal" class="font-bold text-brand-600 dark:text-brand-400">Toshkent shahar</span>
+          </div>
+          <div class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-2">
+            <span class="text-slate-500 dark:text-slate-400" data-i18n="lblStorage">Saqlanish:</span>
+            <span id="cStorageVal" class="font-bold text-slate-900 dark:text-white">Sovutgichda (+2...+8°C)</span>
+          </div>
+          <div>
+            <span class="text-slate-500 dark:text-slate-400 block mb-1" data-i18n="lblDesc">Izoh:</span>
+            <p id="cDescVal" class="text-xs text-slate-600 dark:text-slate-300 italic bg-slate-50 dark:bg-slate-800/60 p-2.5 rounded-xl border border-slate-200 dark:border-slate-700">
+              -
+            </p>
+          </div>
+        </div>
+
+        <!-- Contact Links -->
+        <div class="pt-2 space-y-3">
+          <a id="cPhoneLink" href="tel:+998901234567" class="w-full flex items-center justify-center gap-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-brand-500/20 transition">
+            <i class="fa-solid fa-phone"></i>
+            <span id="cPhoneText">Qo'ng'iroq qilish</span>
+          </a>
+          <a id="cTelegramLink" href="#" target="_blank" class="w-full flex items-center justify-center gap-2.5 bg-sky-500 hover:bg-sky-600 text-white font-bold py-3.5 rounded-xl shadow-sm transition">
+            <i class="fa-brands fa-telegram text-lg"></i>
+            <span data-i18n="btnTelegram">Telegram orqali yozish</span>
+          </a>
+        </div>
+
+        <!-- Safety reminder note -->
+        <div class="p-3 bg-amber-50 dark:bg-amber-950/40 rounded-xl border border-amber-200 dark:border-amber-900/60 text-xs text-amber-800 dark:text-amber-300 flex items-start gap-2">
+          <i class="fa-solid fa-circle-exclamation text-amber-600 mt-0.5"></i>
+          <span data-i18n="contactSafetyNote">Topshirish vaqtida shifokor retseptini ko'rsating va quti butunligini o'zingiz tekshiring.</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Box -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 hidden bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-slate-700 transition transform">
+    <i class="fa-solid fa-circle-check text-emerald-400 dark:text-emerald-600 text-xl"></i>
+    <span id="toastMessage" class="text-xs sm:text-sm font-bold">Muvaffaqiyatli bajarildi!</span>
+  </div>
+
+  <script>
+    /* Multi-Language Dictionary: UZ, RU, EN */
+    const translations = {
+      uz: {
+        topBannerNotice: "Ijtimoiy aksiya: Vafot etgan yaqinlardan ortgan yoki o‘zgargan qimmatbaho dorilarni muhtoj bemorlarga ulashamiz.",
+        logoSub: "Onkologik & Og'ir Xastalik Dori Ko'prigi",
+        navCatalog: "Dorilar Bazasi",
+        navHowItWorks: "Qanday Ishlaydi?",
+        navSafety: "Xavfsizlik & Retsept",
+        navImpact: "Natijalar",
+        btnPostMedicine: "Dori E'lon Qilish",
+        heroBadge: "Onkologiya va Og'ir Bemorlar Uchun Yechim",
+        heroTitlePart1: "Mablag‘ingiz yetmayaptimi?",
+        heroTitlePart2: "DoriKo‘mak — qimmat dorilarga umid ko‘prigi.",
+        heroDescription: "Onkologiya preparatlari narxi millionlab so‘m turadi. Yaqinlari vafot etgan oilalarda qolgan qimmatbaho asl dorilarni bu yerda bepul ehson qilishingiz, teng yarmiga (-50%) yoki ancha arzonroq sotib/topib olishingiz mumkin.",
+        heroBtnBuyer: "Dori Qidiryapman (Bemor)",
+        heroBtnSeller: "Dorini Topshirish (Ehson / Sotuvchi)",
+        stat1Label: "Xayriya dorilari ulushi",
+        stat2Label: "Dorixona narxidan tejash",
+        stat3Label: "Ochilmagan o'ram kafolati",
+        heroLiveSampleBadge: "Shoshilinch E'lon Namunasi",
+        originalPriceLabel: "Dorixona narxi:",
+        ourPriceLabel: "Saytdagi narxi:",
+        expirationLabel: "Yaroqlilik muddati:",
+        locationLabel: "Hudud:",
+        heroColdNotice: "Maxsus sovutgichda (+2°C dan +8°C) saqlanmoqda. Bemor yaqinidan xayriya.",
+        heroShowSimilarBtn: "Shu kabi bepul dorilarni ko'rish",
+        flowTitle: "Saytda Sizning Vazifangiz Nima?",
+        flowSubtitle: "Platforma ikki tomonning og'irini yengil qilish uchun yaratilgan:",
+        roleTabBuyer: "1. Men Xaridorman (Bemor)",
+        roleTabSeller: "2. Men Sotuvchiman (Ehsonchi)",
+        buyerStep1Title: "Arzon yoki Bepul Topish",
+        buyerStep1Desc: "Qimmatbaho dori vositalarini bozor narxining 50% gacha arzoniga yoki butunlay xayriya sifatida oling.",
+        buyerStep2Title: "Yopiq Qadoq va Yaroqlilik",
+        buyerStep2Desc: "Barcha e'lonlar muddati va germetik holati bo'yicha ko'rsatiladi. Saqlanish sharoitini bevosita tekshiring.",
+        buyerStep3Title: "To'g'ridan-to'g'ri Aloqa",
+        buyerStep3Desc: "Vosita egalari bilan vositachilarsiz qo'ng'iroq yoki Telegram orqali bog'lanib, shifokor retsepti bilan oling.",
+        sellerStep1Title: "Xarajatni Qoplash (-50%)",
+        sellerStep1Desc: "Yaqiningizga sarflangan qimmat dori mablag'ining 50% gacha qismini qaytarib olib, oilangizga ko'mak qiling.",
+        sellerStep2Title: "To'liq Xayriya Qilish",
+        sellerStep2Desc: "Mablag' qaytarish shart bo'lmasa, dorini tekinga ehson qilib, boshqa bir inson hayotini saqlab qoling.",
+        sellerStep3Title: "Isrofning Oldini Olish",
+        sellerStep3Desc: "Yaroqlilik muddati tugab chiqindi bo'lishidan avval dorini o'z vaqtida muhtojlarga yetib borishiga xizmat qiling.",
+        catalogLiveBadge: "Jonli Baza",
+        catalogTitle: "Mavjud Dori Vositalari",
+        catalogSubtitle: "Kerakli preparatni tezkor qidiring yoki shartlar bo'yicha saralang",
+        optAllCategories: "Barcha kasallik turlari",
+        optOncology: "Onkologiya (Kimyoterapiya/Target)",
+        optHematology: "Gematologiya (Qon xastaliklari)",
+        optImmunology: "Immunologiya & Autoimmun",
+        optTransplant: "Transplantatsiya & Boshqa",
+        optAllPrices: "Barcha narx shartlari",
+        optPriceFree: "100% Bepul (Xayriya / Ehson)",
+        optPriceHalf: "Teng yarmiga (-50%)",
+        optPriceDiscount: "Katta chegirma",
+        optAllRegions: "Barcha hududlar",
+        quickFilterLabel: "Tezkor:",
+        chipAll: "Hammasi",
+        chipFree: "Faqat Bepul",
+        chipHalf: "-50% Arzon",
+        chipOnco: "Onkologiya",
+        emptyTitle: "Bunday dori vositasi topilmadi",
+        emptyDesc: "Qidiruv mezonlarini o'zgartiring yoki yangi e'lon qoldirilishini kuting.",
+        btnResetFilters: "Filtrlarni tozalash",
+        howItWorksBadge: "Shoshilinch Yo'riqnoma",
+        howItWorksTitle: "Tizim Qanday Ishlaydi?",
+        howItWorksSub: "Hech qanday murakkabliklarsiz, xavfsiz va to'g'ridan-to'g'ri ko'mak:",
+        step1Title: "E'lon Joylash",
+        step1Desc: "Ortib qolgan dori nomi, fotosurati, yaroqlilik muddati va taklif narxi (yoki 0 so'm ehson) kiritiladi.",
+        step2Title: "Qadoq Tekshiruvi",
+        step2Desc: "Dorining zavod qadog'i butunligi, ochilmaganligi va maxsus haroratda saqlangani tasdiqlanadi.",
+        step3Title: "Retsept Taqdimoti",
+        step3Desc: "Xaridor shifokor tomonidan berilgan rasmiy retsept va tayinlov varaqasini ko'rsatishi shart.",
+        step4Title: "Topshirish & Najot",
+        step4Desc: "Dori topshiriladi, bemor davolanishdan uzilib qolmaydi va qimmat dori isrof bo'lishdan qutiladi.",
+        safetyBadge: "Qat'iy Nazorat va Ogohlantirish",
+        safetyTitle: "Tibbiy Xavfsizlik Qoidalari va Mas'uliyat",
+        safetySub: "DoriKo'mak tijoriy dorixona emas, ijtimoiy ko'mak maydonidir. Har bir dori almashinuvida quyidagilarga amal qilinishi shart:",
+        rule1Title: "Ochilgan ampula/flakon yo'q",
+        rule1Desc: "Faqat zavod himoya lentasi butun bo'lgan, ochilmagan qutilar qabul qilinadi.",
+        rule2Title: "Sovuq zanjiriga rioya",
+        rule2Desc: "+2°C dan +8°C gacha bo'lgan onkologik vositalarni topshirishda termoboks yoki xladogen ishlatilishi zarur.",
+        rule3Title: "Retsept bilan qabul qilish",
+        rule3Desc: "O'zboshimchalik bilan davolanish qat'iyan taqiqlanadi. Faqat onkolog-shifokor tayinlovi asosida olinadi.",
+        impactBadge: "Ijtimoiy Birdamlik",
+        impactTitle: "\"Shuning uchun bu loyiha yechim bo'ladi\"",
+        impactDescription: "Har yili qimmatbaho dori vositalari muddati o'tib tashlab yuboriladi. Ayni vaqtda boshqa bir oila mablag'i yetmay davolanishni to'xtatishga majbur bo'ladi. Biz bu ikki tomonni birlashtirib, hayotlarni saqlaymiz.",
+        statCountMeds: "Yetkazilgan dorilar",
+        statCountSavings: "Tejalgan oilaviy mablag' (UZS)",
+        statCountDonors: "Ehsonchi oilalar",
+        statCountVolunteer: "Bepul & Beg'araz tashabbus",
+        btnCtaJoin: "Siz ham dorini topshiring yoki ehson qiling",
+        footerAbout: "Onkologik va og'ir kasalliklarga chalingan bemorlar uchun dorilarni qayta taqsimlash bo'yicha mustaqil ijtimoiy ko'ngillilar platformasi.",
+        footerNavTitle: "Tezkor Sahifalar",
+        footerDisclaimerTitle: "Yuridik Eslatma",
+        footerDisclaimer: "Ushbu sayt dori vositalarini sotuvchi dorixona emas. Sayt faqat fuqarolar o'rtasidagi ma'lumot almashinuvini ta'minlaydi. Retseptli vositalar faqat shifokor ko'rsatmasi bilan qabul qilinadi.",
+        footerContactTitle: "Ko'ngillilar Bog'lanishi",
+        modalAddBadge: "Yangi Dori Topshirish",
+        modalAddTitle: "Dori E'lonini Joylashtirish",
+        lblDrugName: "Dori Nomi *",
+        lblDosage: "Dozasi va Shakli *",
+        lblCategory: "Kasallik Yo'nalishi *",
+        lblRegion: "Hudud / Shahar *",
+        lblPriceCondition: "Topshirish Sharti *",
+        typeFree: "100% Ehson (Bepul)",
+        typeHalf: "Teng yarmiga (-50%)",
+        typeDiscount: "Salgina arzonroq",
+        lblOriginalPrice: "Dorixona Asl Narxi (UZS) *",
+        lblSellingPrice: "Taklif Qilayotgan Narxingiz (UZS)",
+        lblExpiry: "Yaroqlilik Muddati (Oy/Yil) *",
+        lblStorage: "Saqlanish Sharoiti *",
+        optStorageCold: "Sovutgichda (+2°C dan +8°C gacha)",
+        optStorageRoom: "Xona haroratida (25°C dan past)",
+        lblPhone: "Telefon Raqamingiz *",
+        lblTelegram: "Telegram (ixtiyoriy)",
+        lblDesc: "Izoh / Holat haqida ma'lumot",
+        lblConsent: "Dorining zavod qadog‘i ochilmaganligini, muddati o‘tmaganligini va shifokor retseptiga ega bo‘lgan bemorga topshirilishiga roziligimni tasdiqlayman.",
+        btnCancel: "Bekor qilish",
+        btnSubmit: "E'lonni Joylashtirish",
+        modalContactBadge: "Dori Egasi Bilan Bog'lanish",
+        modalPriceCaption: "Taklif etilayotgan narx:",
+        btnTelegram: "Telegram orqali yozish",
+        contactSafetyNote: "Topshirish vaqtida shifokor retseptini ko'rsating va quti butunligini o'zingiz tekshiring.",
+        toastAdded: "E'lon muvaffaqiyatli qo'shildi va ro'yxatda aks etdi!"
+      },
+      ru: {
+        topBannerNotice: "Социальная инициатива: Передаем оставшиеся дорогие лекарства от ушедших близких нуждающимся онкобольным.",
+        logoSub: "Мост лекарств при онкологии и редких болезнях",
+        navCatalog: "База Препаратов",
+        navHowItWorks: "Как это работает?",
+        navSafety: "Безопасность и Рецепт",
+        navImpact: "Результаты",
+        btnPostMedicine: "Разместить Лекарство",
+        heroBadge: "Решение для онкологических и тяжелобольных",
+        heroTitlePart1: "Не хватает средств на лекарства?",
+        heroTitlePart2: "DoriKo‘mak — мост надежды на дорогие препараты.",
+        heroDescription: "Онкологические препараты стоят миллионы сумов. Оставшиеся у семей оригинальные лекарства можно передать бесплатно в дар, за полцены (-50%) или со значительной скидкой тем, кто прямо сейчас борется за жизнь.",
+        heroBtnBuyer: "Ищу лекарство (Пациент)",
+        heroBtnSeller: "Передать лекарство (Дар / Продажа)",
+        stat1Label: "Доля благотворительных лекарств",
+        stat2Label: "Экономия от аптечной цены",
+        stat3Label: "Гарантия невскрытой упаковки",
+        heroLiveSampleBadge: "Пример срочного объявления",
+        originalPriceLabel: "Цена в аптеке:",
+        ourPriceLabel: "Цена на сайте:",
+        expirationLabel: "Срок годности:",
+        locationLabel: "Регион:",
+        heroColdNotice: "Хранится в спец. холодильнике (+2°C до +8°C). Дар от родственников пациента.",
+        heroShowSimilarBtn: "Смотреть бесплатные препараты",
+        flowTitle: "Какова ваша цель на сайте?",
+        flowSubtitle: "Платформа создана, чтобы облегчить трудности обеих сторон:",
+        roleTabBuyer: "1. Я Покупатель (Пациент)",
+        roleTabSeller: "2. Я Отдаю (Донор / Семья)",
+        buyerStep1Title: "Найти дешево или бесплатно",
+        buyerStep1Desc: "Получите жизненно важные препараты за полцены или полностью в дар от семей доноров.",
+        buyerStep2Title: "Заводская упаковка и срок",
+        buyerStep2Desc: "Все препараты не вскрыты и проверяются по сроку годности и правилу температурного режима.",
+        buyerStep3Title: "Прямой контакт",
+        buyerStep3Desc: "Связывайтесь напрямую по телефону или Telegram без посредников и комиссий, имея рецепт врача.",
+        sellerStep1Title: "Возврат расходов (-50%)",
+        sellerStep1Desc: "Верните до половины затрат на неиспользованные медикаменты, поддержав семейный бюджет.",
+        sellerStep2Title: "Полная благотворительность",
+        sellerStep2Desc: "Передайте лекарство бесплатно и подарите шанс на жизнь тяжелобольному человеку.",
+        sellerStep3Title: "Предотвращение потерь",
+        sellerStep3Desc: "Не допускайте утилизации ценнейших препаратов — передайте их тем, кому они спасут жизнь.",
+        catalogLiveBadge: "Живая База",
+        catalogTitle: "Доступные Медикаменты",
+        catalogSubtitle: "Быстрый поиск нужного препарата и фильтрация по условиям",
+        optAllCategories: "Все категории болезней",
+        optOncology: "Онкология (Химио / Таргет)",
+        optHematology: "Гематология (Болезни крови)",
+        optImmunology: "Иммунология & Аутоиммунные",
+        optTransplant: "Трансплантация & Прочее",
+        optAllPrices: "Все условия передачи",
+        optPriceFree: "100% Бесплатно (Дар / Садака)",
+        optPriceHalf: "За полцены (-50%)",
+        optPriceDiscount: "Большая скидка",
+        optAllRegions: "Все регионы",
+        quickFilterLabel: "Быстро:",
+        chipAll: "Все",
+        chipFree: "Только Бесплатно",
+        chipHalf: "-50% Дешевле",
+        chipOnco: "Онкология",
+        emptyTitle: "Препарат не найден",
+        emptyDesc: "Измените параметры поиска или ожидайте новых объявлений от доноров.",
+        btnResetFilters: "Сбросить фильтры",
+        howItWorksBadge: "Инструкция",
+        howItWorksTitle: "Как работает сервис?",
+        howItWorksSub: "Без бюрократии, надежная прямая помощь между семьями:",
+        step1Title: "Подача объявления",
+        step1Desc: "Указывается название, фото упаковки, срок годности и цена (или 0 сум для дара).",
+        step2Title: "Контроль упаковки",
+        step2Desc: "Проверяется целостность заводской пломбы и соблюдение холодовой цепи (при необходимости).",
+        step3Title: "Наличие рецепта",
+        step3Desc: "Пациент или родственник обязательно подтверждает назначение лечащего онколога.",
+        step4Title: "Передача и спасение",
+        step4Desc: "Препарат передается лично, лечение не прерывается, а дорогое лекарство не пропадает.",
+        safetyBadge: "Строгий Контроль",
+        safetyTitle: "Правила безопасности и ответственность",
+        safetySub: "DoriKo‘mak — не коммерческая аптека, а социальный мост взаимопомощи. Обязательны следующие правила:",
+        rule1Title: "Никаких вскрытых ампул",
+        rule1Desc: "Принимаются исключительно невскрытые заводские упаковки с неповрежденными пломбами.",
+        rule2Title: "Холодовая цепь (+2...+8°C)",
+        rule2Desc: "Онкопрепараты должны храниться и передаваться в термоконтейнерах с хладоэлементами.",
+        rule3Title: "Только по рецепту",
+        rule3Desc: "Самолечение категорически запрещено. Препараты принимаются строго по назначению врача.",
+        impactBadge: "Солидарность",
+        impactTitle: "«Вот почему эта платформа — решение»",
+        impactDescription: "Ежегодно выбрасываются препараты на сотни миллионов, пока другие семьи прекращают терапию из-за нехватки денег. Мы объединяем людей, спасая жизни.",
+        statCountMeds: "Передано лекарств",
+        statCountSavings: "Сэкономлено средств (UZS)",
+        statCountDonors: "Семей-доноров",
+        statCountVolunteer: "Бесплатная инициатива",
+        btnCtaJoin: "Передайте или пожертвуйте медикаменты",
+        footerAbout: "Независимая волонтерская платформа перераспределения онкологических препаратов для нуждающихся больных.",
+        footerNavTitle: "Разделы",
+        footerDisclaimerTitle: "Юридическая оговорка",
+        footerDisclaimer: "Сервис не осуществляет фармацевтическую деятельность. Это доска объявлений взаимопомощи между гражданами. Прием лекарств только по назначению врача.",
+        footerContactTitle: "Контакты координаторов",
+        modalAddBadge: "Передать препарат",
+        modalAddTitle: "Размещение объявления о лекарстве",
+        lblDrugName: "Название препарата *",
+        lblDosage: "Дозировка и форма *",
+        lblCategory: "Направление заболевания *",
+        lblRegion: "Регион / Город *",
+        lblPriceCondition: "Условия передачи *",
+        typeFree: "100% В дар (Бесплатно)",
+        typeHalf: "За полцены (-50%)",
+        typeDiscount: "С небольшой скидкой",
+        lblOriginalPrice: "Цена в аптеке (UZS) *",
+        lblSellingPrice: "Ваша цена передачи (UZS)",
+        lblExpiry: "Срок годности (ММ/ГГГГ) *",
+        lblStorage: "Условия хранения *",
+        optStorageCold: "В холодильнике (+2°C до +8°C)",
+        optStorageRoom: "Комнатная t° (до 25°C)",
+        lblPhone: "Номер телефона *",
+        lblTelegram: "Telegram (необязательно)",
+        lblDesc: "Комментарий / Описание",
+        lblConsent: "Подтверждаю, что упаковка невскрыта, срок годности не истек, и препарат передается пациенту с рецептом.",
+        btnCancel: "Отмена",
+        btnSubmit: "Опубликовать объявление",
+        modalContactBadge: "Связь с владельцем",
+        modalPriceCaption: "Предлагаемая цена:",
+        btnTelegram: "Написать в Telegram",
+        contactSafetyNote: "При передаче обязательно предъявите рецепт врача и лично осмотрите герметичность упаковки.",
+        toastAdded: "Объявление успешно опубликовано в базе!"
+      },
+      en: {
+        topBannerNotice: "Social initiative: Connecting families of deceased or recovered patients to share oncology medicines with those in need.",
+        logoSub: "Severe Illness & Oncology Medicine Bridge",
+        navCatalog: "Medicine Feed",
+        navHowItWorks: "How It Works",
+        navSafety: "Safety & Prescription",
+        navImpact: "Impact",
+        btnPostMedicine: "List Medication",
+        heroBadge: "Compassionate Solution for Cancer Patients",
+        heroTitlePart1: "Facing overwhelming medical costs?",
+        heroTitlePart2: "DoriKo‘mak — Lifeline for costly medicines.",
+        heroDescription: "Cancer therapies cost millions. Families whose loved ones have passed away or changed regimens can donate or offer remaining unopened medicines at half-price (-50%) or significant discounts to save lives.",
+        heroBtnBuyer: "I Need Medication (Patient)",
+        heroBtnSeller: "Share Medication (Donation/Seller)",
+        stat1Label: "Free donation share",
+        stat2Label: "Savings off retail pharmacy",
+        stat3Label: "Sealed packaging guarantee",
+        heroLiveSampleBadge: "Urgent Listing Sample",
+        originalPriceLabel: "Pharmacy retail price:",
+        ourPriceLabel: "Platform price:",
+        expirationLabel: "Expiry date:",
+        locationLabel: "Location:",
+        heroColdNotice: "Stored in dedicated medical cooler (+2°C to +8°C). Compassionate donation.",
+        heroShowSimilarBtn: "Browse free donated medicines",
+        flowTitle: "What is your goal today?",
+        flowSubtitle: "A peer-to-peer bridge designed to solve financial distress and medical waste:",
+        roleTabBuyer: "1. I'm a Buyer (Patient)",
+        roleTabSeller: "2. I'm Sharing (Donor / Family)",
+        buyerStep1Title: "Affordable or Free",
+        buyerStep1Desc: "Access life-saving therapies at 50% discount or 100% free donation from compassionate families.",
+        buyerStep2Title: "Factory Sealed & Inspected",
+        buyerStep2Desc: "All listings specify seal integrity, expiration date, and verified cold chain compliance.",
+        buyerStep3Title: "Direct Connection",
+        buyerStep3Desc: "Contact medicine holders directly via phone or Telegram with zero commissions or middlemen.",
+        sellerStep1Title: "Cost Recovery (-50%)",
+        sellerStep1Desc: "Recoup a portion of extreme therapy costs while providing a massive discount to a struggling patient.",
+        sellerStep2Title: "Pure Donation",
+        sellerStep2Desc: "Donate surplus medicines for free to give a second chance at life to another patient.",
+        sellerStep3Title: "Preventing Waste",
+        sellerStep3Desc: "Stop precious medications from expiring on shelves and being discarded.",
+        catalogLiveBadge: "Live Feed",
+        catalogTitle: "Available Medications",
+        catalogSubtitle: "Search vital medicines or filter by condition, region, and pricing",
+        optAllCategories: "All Disease Categories",
+        optOncology: "Oncology (Chemo / Targeted)",
+        optHematology: "Hematology (Blood disorders)",
+        optImmunology: "Immunology & Rare Diseases",
+        optTransplant: "Transplantation & Others",
+        optAllPrices: "All Pricing Conditions",
+        optPriceFree: "100% Free (Donation)",
+        optPriceHalf: "Half Price (-50%)",
+        optPriceDiscount: "Substantial Discount",
+        optAllRegions: "All Regions",
+        quickFilterLabel: "Quick:",
+        chipAll: "All",
+        chipFree: "Free Only",
+        chipHalf: "-50% Off",
+        chipOnco: "Oncology",
+        emptyTitle: "No medications match your filter",
+        emptyDesc: "Try adjusting search terms or wait for new donor listings to appear.",
+        btnResetFilters: "Reset Filters",
+        howItWorksBadge: "Step-by-Step",
+        howItWorksTitle: "How Does It Work?",
+        howItWorksSub: "A transparent, bureaucracy-free bridge between families:",
+        step1Title: "List Medicine",
+        step1Desc: "The donor inputs medicine details, packaging photo, expiry, and offering terms (or 0 for donation).",
+        step2Title: "Seal Check",
+        step2Desc: "Factory seal integrity and storage temperature adherence (+2°C to +8°C) are confirmed.",
+        step3Title: "Prescription Check",
+        step3Desc: "The recipient must show an official medical oncology prescription for safety.",
+        step4Title: "Handover & Relief",
+        step4Desc: "Medicine is handed over safely, preserving continuity of care without financial ruin.",
+        safetyBadge: "Strict Protocol",
+        safetyTitle: "Safety Protocols & Patient Responsibility",
+        safetySub: "DoriKo‘mak is not an online pharmacy, but a humanitarian matching platform. Compliance with these rules is mandatory:",
+        rule1Title: "No opened vials allowed",
+        rule1Desc: "Only unopened factory-sealed original cartons and blister packs are permitted.",
+        rule2Title: "Cold Chain Adherence",
+        rule2Desc: "Biologics requiring +2°C to +8°C must be transferred using insulated cool boxes.",
+        rule3Title: "Valid Prescription Required",
+        rule3Desc: "Self-medication is strictly prohibited. Use only as prescribed by an oncologist.",
+        impactBadge: "Solidarity",
+        impactTitle: "\"That is why this platform is the solution\"",
+        impactDescription: "Every month, millions worth of oncology drugs expire unused after a patient's demise, while another family is forced to abandon treatment due to poverty. We connect both.",
+        statCountMeds: "Medications Reallocated",
+        statCountSavings: "Family Funds Saved (UZS)",
+        statCountDonors: "Donor Families",
+        statCountVolunteer: "Volunteer Driven",
+        btnCtaJoin: "Share or donate medication now",
+        footerAbout: "An independent humanitarian initiative facilitating the reallocation of oncology medicines to patients in need.",
+        footerNavTitle: "Quick Links",
+        footerDisclaimerTitle: "Legal Disclaimer",
+        footerDisclaimer: "This website does not sell or distribute drugs commercially. It is a peer-to-peer social bulletin. Prescription medications require clinical oversight.",
+        footerContactTitle: "Volunteer Helpline",
+        modalAddBadge: "Share Medicine",
+        modalAddTitle: "Create Medicine Listing",
+        lblDrugName: "Medicine Name *",
+        lblDosage: "Dosage & Form *",
+        lblCategory: "Medical Category *",
+        lblRegion: "Region / City *",
+        lblPriceCondition: "Offering Condition *",
+        typeFree: "100% Free Donation",
+        typeHalf: "Half Price (-50%)",
+        typeDiscount: "Moderate Discount",
+        lblOriginalPrice: "Original Pharmacy Price (UZS) *",
+        lblSellingPrice: "Your Offering Price (UZS)",
+        lblExpiry: "Expiry Date (MM/YYYY) *",
+        lblStorage: "Storage Condition *",
+        optStorageCold: "Refrigerated (+2°C to +8°C)",
+        optStorageRoom: "Room Temperature (<25°C)",
+        lblPhone: "Phone Number *",
+        lblTelegram: "Telegram Handle (Optional)",
+        lblDesc: "Notes / Details",
+        lblConsent: "I verify that the factory seal is intact, not expired, and will only be handed to a patient with a doctor's prescription.",
+        btnCancel: "Cancel",
+        btnSubmit: "Publish Listing",
+        modalContactBadge: "Contact Medicine Holder",
+        modalPriceCaption: "Offering price:",
+        btnTelegram: "Message on Telegram",
+        contactSafetyNote: "Always present your doctor's prescription and inspect the packaging seal in person.",
+        toastAdded: "Listing successfully added to the live feed!"
+      }
+    };
+
+    let currentLang = 'uz';
+    let currentTheme = 'light';
+
+    // Seed Data representing genuine oncology & rare illness drugs
+    let medicines = [
+      {
+        id: 101,
+        name: "Keytruda (Pembrolizumab)",
+        dosage: "100 mg / 4 ml flakon",
+        category: "onkologiya",
+        priceType: "free",
+        originalPrice: 18500000,
+        sellingPrice: 0,
+        expiry: "08/2027",
+        storage: "cold",
+        region: "Toshkent",
+        phone: "+998 90 911 22 33",
+        telegram: "sardor_donor",
+        desc: "Yaqinimiz vafotidan so'ng 1 ta ochilmagan flakon qolgan. Boshqa muhtoj bemorga bepul ehson qilamiz."
+      },
+      {
+        id: 102,
+        name: "Herceptin (Trastuzumab)",
+        dosage: "440 mg liofilizat flakon",
+        category: "onkologiya",
+        priceType: "half",
+        originalPrice: 12400000,
+        sellingPrice: 6200000,
+        expiry: "11/2026",
+        storage: "cold",
+        region: "Samarqand",
+        phone: "+998 93 456 78 90",
+        telegram: "donor_samarkand",
+        desc: "Davolash kursi o'zgargani sababli ortib qolgan. Dorixona cheki va sertifikati mavjud."
+      },
+      {
+        id: 103,
+        name: "Avastin (Bevacizumab)",
+        dosage: "400 mg / 16 ml konsentrat",
+        category: "onkologiya",
+        priceType: "half",
+        originalPrice: 9800000,
+        sellingPrice: 4900000,
+        expiry: "03/2027",
+        storage: "cold",
+        region: "Farg'ona",
+        phone: "+998 91 234 56 78",
+        telegram: "",
+        desc: "Sovutgich rejimida ehtiyotkorlik bilan saqlanmoqda. Bozor narxidan teng yarmiga beramiz."
+      },
+      {
+        id: 104,
+        name: "MabThera (Rituximab)",
+        dosage: "500 mg / 50 ml flakon",
+        category: "gematologiya",
+        priceType: "free",
+        originalPrice: 14200000,
+        sellingPrice: 0,
+        expiry: "01/2027",
+        storage: "cold",
+        region: "Toshkent",
+        phone: "+998 97 765 43 21",
+        telegram: "ehson_toshkent",
+        desc: "Limfoma xastaligi uchun olingan edi. Muhtoj oilaga to'liq bepul ehson qilinadi."
+      },
+      {
+        id: 105,
+        name: "Glivec (Imatinib)",
+        dosage: "400 mg tabletka (№30)",
+        category: "gematologiya",
+        priceType: "discount",
+        originalPrice: 7200000,
+        sellingPrice: 2800000,
+        expiry: "06/2027",
+        storage: "room",
+        region: "Buxoro",
+        phone: "+998 94 333 22 11",
+        telegram: "buxoro_ko_mak",
+        desc: "Qutilari ochilmagan, dorixona narxidan ancha arzonga taqdim etiladi."
+      },
+      {
+        id: 106,
+        name: "Prograf (Tacrolimus)",
+        dosage: "1 mg kapsula (№50)",
+        category: "organ",
+        priceType: "half",
+        originalPrice: 3400000,
+        sellingPrice: 1700000,
+        expiry: "09/2026",
+        storage: "room",
+        region: "Toshkent",
+        phone: "+998 90 888 77 66",
+        telegram: "",
+        desc: "Buyrak transplantatsiyasidan so'ng doza o'zgargani sababli 2 quti qolgan."
+      }
+    ];
+
+    function changeLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('dorikomak_lang', lang);
+      document.getElementById('langSelect').value = lang;
+
+      const dict = translations[lang] || translations.uz;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      // Update placeholders
+      if (lang === 'ru') {
+        document.getElementById('searchInput').placeholder = "Поиск по названию или веществу...";
+      } else if (lang === 'en') {
+        document.getElementById('searchInput').placeholder = "Search medicine name or active drug...";
+      } else {
+        document.getElementById('searchInput').placeholder = "Dori nomi yoki faol moddasi...";
+      }
+
+      // Re-render feed
+      filterMedications();
+    }
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem('dorikomak_theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+        currentTheme = 'dark';
+        document.getElementById('themeIcon').className = 'fa-solid fa-sun text-base text-amber-400';
+      } else {
+        document.documentElement.classList.remove('dark');
+        currentTheme = 'light';
+        document.getElementById('themeIcon').className = 'fa-solid fa-moon text-base text-slate-600';
+      }
+    }
+
+    function toggleTheme() {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('dorikomak_theme', 'light');
+        currentTheme = 'light';
+        document.getElementById('themeIcon').className = 'fa-solid fa-moon text-base text-slate-600';
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('dorikomak_theme', 'dark');
+        currentTheme = 'dark';
+        document.getElementById('themeIcon').className = 'fa-solid fa-sun text-base text-amber-400';
+      }
+    }
+
+    function formatUZS(amount) {
+      return new Intl.NumberFormat('uz-UZ').format(amount) + " UZS";
+    }
+
+    function renderCards(list) {
+      const container = document.getElementById('medicationsGrid');
+      const emptyState = document.getElementById('emptyCatalogState');
+
+      if (!list || list.length === 0) {
+        container.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      const dict = translations[currentLang];
+
+      container.innerHTML = list.map(med => {
+        let badgeStyle = '';
+        let badgeText = '';
+        let priceBlock = '';
+
+        if (med.priceType === 'free' || med.sellingPrice === 0) {
+          badgeStyle = 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800';
+          badgeText = `<i class="fa-solid fa-gift mr-1.5"></i> ${dict.typeFree}`;
+          priceBlock = `
+            <div>
+              <span class="text-[11px] text-slate-400 line-through block">${formatUZS(med.originalPrice)}</span>
+              <span class="text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400">0 UZS (Bepul)</span>
+            </div>
+          `;
+        } else if (med.priceType === 'half') {
+          badgeStyle = 'bg-rose-100 text-rose-800 dark:bg-rose-950/80 dark:text-rose-300 border-rose-200 dark:border-rose-800';
+          badgeText = `<i class="fa-solid fa-percent mr-1.5"></i> ${dict.typeHalf}`;
+          priceBlock = `
+            <div>
+              <span class="text-[11px] text-slate-400 line-through block">${formatUZS(med.originalPrice)}</span>
+              <span class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">${formatUZS(med.sellingPrice)}</span>
+            </div>
+          `;
+        } else {
+          badgeStyle = 'bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 border-amber-200 dark:border-amber-800';
+          badgeText = `<i class="fa-solid fa-tags mr-1.5"></i> ${dict.typeDiscount}`;
+          priceBlock = `
+            <div>
+              <span class="text-[11px] text-slate-400 line-through block">${formatUZS(med.originalPrice)}</span>
+              <span class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">${formatUZS(med.sellingPrice)}</span>
+            </div>
+          `;
+        }
+
+        const storageText = med.storage === 'cold' ? dict.optStorageCold : dict.optStorageRoom;
+
+        return `
+          <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-brand-500/50 dark:hover:border-brand-500/50 transition duration-300 flex flex-col justify-between group">
+            <div>
+              <!-- Card Header Badges -->
+              <div class="flex items-center justify-between gap-2 mb-3.5">
+                <span class="px-3 py-1 rounded-full text-xs font-bold border ${badgeStyle}">
+                  ${badgeText}
+                </span>
+                <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                  <i class="fa-solid fa-location-dot text-brand-600 dark:text-brand-400"></i> ${med.region}
+                </span>
+              </div>
+
+              <!-- Medicine Name & Dosage -->
+              <h3 class="font-display font-bold text-lg sm:text-xl text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition">
+                ${med.name}
+              </h3>
+              <span class="inline-block px-2.5 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold mt-1">
+                ${med.dosage}
+              </span>
+
+              <!-- Description -->
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-3 line-clamp-2 leading-relaxed">
+                ${med.desc || '-'}
+              </p>
+
+              <!-- Safety Specs -->
+              <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 space-y-2 text-xs">
+                <div class="flex justify-between">
+                  <span class="text-slate-400">${dict.expirationLabel}</span>
+                  <span class="font-bold text-slate-800 dark:text-slate-200">${med.expiry}</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-400">${dict.lblStorage}</span>
+                  <span class="font-semibold text-brand-600 dark:text-brand-400 truncate max-w-[190px]" title="${storageText}">
+                    ${med.storage === 'cold' ? '<i class="fa-solid fa-snowflake mr-1"></i>' : '<i class="fa-solid fa-house mr-1"></i>'}
+                    ${storageText}
+                  </span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-400">Qadoq holati:</span>
+                  <span class="text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
+                    <i class="fa-solid fa-circle-check"></i> Ochilmagan
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Footer & Price -->
+            <div class="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-3">
+              ${priceBlock}
+              <button onclick="openContactModal(${med.id})" class="px-4 py-2.5 rounded-xl bg-slate-900 dark:bg-brand-600 hover:bg-slate-800 dark:hover:bg-brand-700 text-white font-bold text-xs shadow transition active:scale-95 flex items-center gap-1.5">
+                <i class="fa-solid fa-phone"></i>
+                <span>Bog'lanish</span>
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterMedications() {
+      const q = document.getElementById('searchInput').value.toLowerCase().trim();
+      const cat = document.getElementById('categoryFilter').value;
+      const price = document.getElementById('priceFilter').value;
+      const reg = document.getElementById('regionFilter').value;
+
+      const filtered = medicines.filter(item => {
+        const matchesQuery = item.name.toLowerCase().includes(q) || item.dosage.toLowerCase().includes(q);
+        const matchesCat = (cat === 'all') || (item.category === cat);
+        const matchesPrice = (price === 'all') || (item.priceType === price);
+        const matchesReg = (reg === 'all') || (item.region.toLowerCase().includes(reg.toLowerCase()));
+        return matchesQuery && matchesCat && matchesPrice && matchesReg;
+      });
+
+      renderCards(filtered);
+    }
+
+    function setQuickPriceFilter(price) {
+      document.getElementById('priceFilter').value = price;
+      updateChipStyles();
+      filterMedications();
+    }
+
+    function setQuickCategoryFilter(cat) {
+      document.getElementById('categoryFilter').value = cat;
+      filterMedications();
+    }
+
+    function resetAllFilters() {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('categoryFilter').value = 'all';
+      document.getElementById('priceFilter').value = 'all';
+      document.getElementById('regionFilter').value = 'all';
+      filterMedications();
+    }
+
+    function scrollToFilter(priceType) {
+      document.getElementById('katalog').scrollIntoView({ behavior: 'smooth' });
+      setQuickPriceFilter(priceType);
+    }
+
+    function updateChipStyles() {
+      // Toggle visual active state on chips if needed
+    }
+
+    function setRole(role) {
+      const buyerBox = document.getElementById('roleDetailsBuyer');
+      const sellerBox = document.getElementById('roleDetailsSeller');
+      const btnB = document.getElementById('roleBtnBuyer');
+      const btnS = document.getElementById('roleBtnSeller');
+
+      if (role === 'seller') {
+        buyerBox.classList.add('hidden');
+        sellerBox.classList.remove('hidden');
+        btnS.className = "flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-bold transition flex items-center justify-center gap-2 bg-white dark:bg-slate-900 text-brand-600 dark:text-brand-400 shadow-sm";
+        btnB.className = "flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-bold transition flex items-center justify-center gap-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white";
+      } else {
+        sellerBox.classList.add('hidden');
+        buyerBox.classList.remove('hidden');
+        btnB.className = "flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-bold transition flex items-center justify-center gap-2 bg-white dark:bg-slate-900 text-brand-600 dark:text-brand-400 shadow-sm";
+        btnS.className = "flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-bold transition flex items-center justify-center gap-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white";
+      }
+    }
+
+    function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function toggleFormPriceInputs() {
+      const selected = document.querySelector('input[name="fPriceType"]:checked').value;
+      const wrap = document.getElementById('sellingPriceWrapper');
+      const input = document.getElementById('fSellingPrice');
+      const originalInput = document.getElementById('fOriginalPrice');
+
+      if (selected === 'free') {
+        wrap.classList.add('opacity-40', 'pointer-events-none');
+        input.value = 0;
+        input.removeAttribute('required');
+      } else if (selected === 'half') {
+        wrap.classList.remove('opacity-40', 'pointer-events-none');
+        input.setAttribute('required', 'true');
+        if (originalInput.value) {
+          input.value = Math.round(Number(originalInput.value) * 0.5);
+        }
+      } else {
+        wrap.classList.remove('opacity-40', 'pointer-events-none');
+        input.setAttribute('required', 'true');
+      }
+    }
+
+    function calculateDiscountAuto() {
+      const selected = document.querySelector('input[name="fPriceType"]:checked')?.value;
+      const original = Number(document.getElementById('fOriginalPrice').value);
+      if (selected === 'half' && original) {
+        document.getElementById('fSellingPrice').value = Math.round(original * 0.5);
+      }
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('fDrugName').value.trim();
+      const dosage = document.getElementById('fDosage').value.trim();
+      const category = document.getElementById('fCategory').value;
+      const region = document.getElementById('fRegion').value;
+      const priceType = document.querySelector('input[name="fPriceType"]:checked').value;
+      const originalPrice = Number(document.getElementById('fOriginalPrice').value) || 0;
+      let sellingPrice = Number(document.getElementById('fSellingPrice').value) || 0;
+
+      if (priceType === 'free') sellingPrice = 0;
+      if (priceType === 'half' && !sellingPrice) sellingPrice = Math.round(originalPrice * 0.5);
+
+      const expiry = document.getElementById('fExpiry').value.trim();
+      const storage = document.getElementById('fStorage').value;
+      const phone = document.getElementById('fPhone').value.trim();
+      const telegram = document.getElementById('fTelegram').value.trim();
+      const desc = document.getElementById('fDesc').value.trim();
+
+      const newListing = {
+        id: Date.now(),
+        name,
+        dosage,
+        category,
+        region,
+        priceType,
+        originalPrice,
+        sellingPrice,
+        expiry,
+        storage,
+        phone,
+        telegram,
+        desc
+      };
+
+      medicines.unshift(newListing);
+      filterMedications();
+      closeModal('addListingModal');
+      document.getElementById('newListingForm').reset();
+      toggleFormPriceInputs();
+
+      const dict = translations[currentLang];
+      showToast(dict.toastAdded || "E'lon bazaga muvaffaqiyatli qo'shildi!");
+
+      // Scroll to live catalog
+      document.getElementById('katalog').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function openContactModal(id) {
+      const med = medicines.find(m => m.id === id);
+      if (!med) return;
+
+      const dict = translations[currentLang];
+      document.getElementById('cDrugTitle').innerText = `${med.name}`;
+      document.getElementById('cDosageVal').innerText = med.dosage;
+      document.getElementById('cExpiryVal').innerText = med.expiry;
+      document.getElementById('cRegionVal').innerText = med.region;
+      document.getElementById('cStorageVal').innerText = med.storage === 'cold' ? dict.optStorageCold : dict.optStorageRoom;
+      document.getElementById('cDescVal').innerText = med.desc || '-';
+
+      const priceValEl = document.getElementById('cPriceVal');
+      const badgeEl = document.getElementById('cBadgeVal');
+
+      if (med.priceType === 'free' || med.sellingPrice === 0) {
+        priceValEl.innerText = "0 UZS (Bepul)";
+        priceValEl.className = "text-2xl font-black text-emerald-600 dark:text-emerald-400";
+        badgeEl.innerText = dict.typeFree;
+        badgeEl.className = "px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300";
+      } else {
+        priceValEl.innerText = formatUZS(med.sellingPrice);
+        priceValEl.className = "text-2xl font-black text-slate-900 dark:text-white";
+        badgeEl.innerText = med.priceType === 'half' ? dict.typeHalf : dict.typeDiscount;
+        badgeEl.className = "px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300";
+      }
+
+      document.getElementById('cPhoneLink').href = `tel:${med.phone.replace(/[^0-9+]/g, '')}`;
+      document.getElementById('cPhoneText').innerText = `${med.phone}`;
+
+      const tgBtn = document.getElementById('cTelegramLink');
+      if (med.telegram) {
+        tgBtn.href = `https://t.me/${med.telegram.replace('@', '')}`;
+        tgBtn.classList.remove('hidden');
+      } else {
+        tgBtn.classList.add('hidden');
+      }
+
+      openModal('contactModal');
+    }
+
+    function showToast(text) {
+      const toast = document.getElementById('toastNotification');
+      document.getElementById('toastMessage').innerText = text;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 4000);
+    }
+
+    function toggleMobileNav() {
+      const drawer = document.getElementById('mobileDrawer');
+      drawer.classList.toggle('hidden');
+    }
+
+    // Close modal when clicked outside
+    window.addEventListener('click', (e) => {
+      const m1 = document.getElementById('addListingModal');
+      const m2 = document.getElementById('contactModal');
+      if (e.target === m1) closeModal('addListingModal');
+      if (e.target === m2) closeModal('contactModal');
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+
+      const savedLang = localStorage.getItem('dorikomak_lang') || 'uz';
+      changeLanguage(savedLang);
+    });
+  </script>
+</body>
+</html>
